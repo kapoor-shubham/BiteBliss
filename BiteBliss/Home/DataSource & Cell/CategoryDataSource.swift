@@ -7,9 +7,15 @@
 
 import UIKit
 
+
+protocol SearchCategoryMealDelegate {
+    func searchMeal(meal: String)
+}
+
 class CategoryDataSource: NSObject {
     
     var categories = [CategoriesResponseModel.Category]()
+    var delegate: SearchCategoryMealDelegate?
     
     func registerCells(forCollectionView collectionView: UICollectionView) {
         collectionView.register(UINib(nibName: CellIdentifiers.categoryListCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: CellIdentifiers.categoryListCollectionViewCell)
@@ -45,6 +51,6 @@ extension CategoryDataSource: UICollectionViewDelegateFlowLayout {
 
 extension CategoryDataSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        delegate?.searchMeal(meal: categories[indexPath.row].strCategory ?? "")
     }
 }

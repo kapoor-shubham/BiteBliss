@@ -26,6 +26,11 @@
 		5124C6342BB59ECC00607CEE /* CategoryReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5124C6332BB59ECC00607CEE /* CategoryReponseModel.swift */; };
 		5124C6362BB5A99200607CEE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5124C6352BB5A99200607CEE /* HomeViewModel.swift */; };
 		5124C63A2BB5CDE000607CEE /* CategoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5124C6392BB5CDE000607CEE /* CategoryDataSource.swift */; };
+		51D18E8C2BBD239D00F6E1C1 /* MealsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D18E8B2BBD239D00F6E1C1 /* MealsListViewController.swift */; };
+		51D18E962BBD2ADD00F6E1C1 /* MealsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D18E942BBD2ADD00F6E1C1 /* MealsListTableViewCell.swift */; };
+		51D18E972BBD2ADD00F6E1C1 /* MealsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D18E952BBD2ADD00F6E1C1 /* MealsListTableViewCell.xib */; };
+		51D18E992BBD2B0B00F6E1C1 /* MealsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D18E982BBD2B0B00F6E1C1 /* MealsListDataSource.swift */; };
+		51D18E9B2BBD393F00F6E1C1 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D18E9A2BBD393F00F6E1C1 /* Extension+UIViewController.swift */; };
 		51D8B86A2BB5D32D008872FA /* CellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D8B8692BB5D32D008872FA /* CellIdentifiers.swift */; };
 		51D8B86D2BB5D3B8008872FA /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D8B86B2BB5D3B8008872FA /* CategoryListCollectionViewCell.swift */; };
 		51D8B86E2BB5D3B8008872FA /* CategoryListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D8B86C2BB5D3B8008872FA /* CategoryListCollectionViewCell.xib */; };
@@ -74,6 +79,11 @@
 		5124C6332BB59ECC00607CEE /* CategoryReponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryReponseModel.swift; sourceTree = "<group>"; };
 		5124C6352BB5A99200607CEE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5124C6392BB5CDE000607CEE /* CategoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataSource.swift; sourceTree = "<group>"; };
+		51D18E8B2BBD239D00F6E1C1 /* MealsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsListViewController.swift; sourceTree = "<group>"; };
+		51D18E942BBD2ADD00F6E1C1 /* MealsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsListTableViewCell.swift; sourceTree = "<group>"; };
+		51D18E952BBD2ADD00F6E1C1 /* MealsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealsListTableViewCell.xib; sourceTree = "<group>"; };
+		51D18E982BBD2B0B00F6E1C1 /* MealsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsListDataSource.swift; sourceTree = "<group>"; };
+		51D18E9A2BBD393F00F6E1C1 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		51D8B8692BB5D32D008872FA /* CellIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiers.swift; sourceTree = "<group>"; };
 		51D8B86B2BB5D3B8008872FA /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
 		51D8B86C2BB5D3B8008872FA /* CategoryListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -131,13 +141,13 @@
 			children = (
 				5124C5EB2BB5939500607CEE /* AppDelegate.swift */,
 				5124C5ED2BB5939500607CEE /* SceneDelegate.swift */,
+				51D18E8D2BBD26A000F6E1C1 /* Meals List */,
 				5124C6302BB59D8900607CEE /* Home */,
-				5124C5F12BB5939500607CEE /* Main.storyboard */,
 				5124C61B2BB59A6200607CEE /* Networking */,
+				51D18E9C2BBD3A9400F6E1C1 /* Utility */,
 				5124C5F42BB5939A00607CEE /* Assets.xcassets */,
-				51D8B8692BB5D32D008872FA /* CellIdentifiers.swift */,
-				51E5783F2BBD055C00474462 /* Extension+UIImageView.swift */,
 				5124C5F62BB5939A00607CEE /* LaunchScreen.storyboard */,
+				5124C5F12BB5939500607CEE /* Main.storyboard */,
 				5124C5F92BB5939A00607CEE /* Info.plist */,
 			);
 			path = BiteBliss;
@@ -202,14 +212,75 @@
 			isa = PBXGroup;
 			children = (
 				5124C6312BB59D8900607CEE /* HomeViewController.swift */,
+				51D18E902BBD2A5400F6E1C1 /* Model */,
+				51D18E912BBD2A7400F6E1C1 /* DataSource & Cell */,
+				51D18E922BBD2A9D00F6E1C1 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		51D18E8D2BBD26A000F6E1C1 /* Meals List */ = {
+			isa = PBXGroup;
+			children = (
+				51D18E8B2BBD239D00F6E1C1 /* MealsListViewController.swift */,
+				51D18E932BBD2AB900F6E1C1 /* DataSource & Cell */,
+			);
+			path = "Meals List";
+			sourceTree = "<group>";
+		};
+		51D18E902BBD2A5400F6E1C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				5124C6332BB59ECC00607CEE /* CategoryReponseModel.swift */,
 				51E578412BBD0D3600474462 /* SearchResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		51D18E912BBD2A7400F6E1C1 /* DataSource & Cell */ = {
+			isa = PBXGroup;
+			children = (
 				51D8B86B2BB5D3B8008872FA /* CategoryListCollectionViewCell.swift */,
 				51D8B86C2BB5D3B8008872FA /* CategoryListCollectionViewCell.xib */,
 				5124C6392BB5CDE000607CEE /* CategoryDataSource.swift */,
+			);
+			path = "DataSource & Cell";
+			sourceTree = "<group>";
+		};
+		51D18E922BBD2A9D00F6E1C1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 				5124C6352BB5A99200607CEE /* HomeViewModel.swift */,
 			);
-			path = Home;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		51D18E932BBD2AB900F6E1C1 /* DataSource & Cell */ = {
+			isa = PBXGroup;
+			children = (
+				51D18E982BBD2B0B00F6E1C1 /* MealsListDataSource.swift */,
+				51D18E942BBD2ADD00F6E1C1 /* MealsListTableViewCell.swift */,
+				51D18E952BBD2ADD00F6E1C1 /* MealsListTableViewCell.xib */,
+			);
+			path = "DataSource & Cell";
+			sourceTree = "<group>";
+		};
+		51D18E9C2BBD3A9400F6E1C1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				51D8B8692BB5D32D008872FA /* CellIdentifiers.swift */,
+				51D18E9D2BBD3AA200F6E1C1 /* Extensions */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		51D18E9D2BBD3AA200F6E1C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				51E5783F2BBD055C00474462 /* Extension+UIImageView.swift */,
+				51D18E9A2BBD393F00F6E1C1 /* Extension+UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51D8B86E2BB5D3B8008872FA /* CategoryListCollectionViewCell.xib in Resources */,
+				51D18E972BBD2ADD00F6E1C1 /* MealsListTableViewCell.xib in Resources */,
 				5124C5F82BB5939A00607CEE /* LaunchScreen.storyboard in Resources */,
 				5124C5F52BB5939A00607CEE /* Assets.xcassets in Resources */,
 				5124C5F32BB5939500607CEE /* Main.storyboard in Resources */,
@@ -349,12 +421,16 @@
 				5124C6272BB59A6200607CEE /* Result.swift in Sources */,
 				5124C6262BB59A6200607CEE /* APIError.swift in Sources */,
 				5124C62A2BB59A6200607CEE /* Rechability.swift in Sources */,
+				51D18E962BBD2ADD00F6E1C1 /* MealsListTableViewCell.swift in Sources */,
 				5124C5EC2BB5939500607CEE /* AppDelegate.swift in Sources */,
 				5124C6322BB59D8900607CEE /* HomeViewController.swift in Sources */,
+				51D18E9B2BBD393F00F6E1C1 /* Extension+UIViewController.swift in Sources */,
 				5124C6292BB59A6200607CEE /* EndPoint.swift in Sources */,
+				51D18E992BBD2B0B00F6E1C1 /* MealsListDataSource.swift in Sources */,
 				5124C6362BB5A99200607CEE /* HomeViewModel.swift in Sources */,
 				5124C63A2BB5CDE000607CEE /* CategoryDataSource.swift in Sources */,
 				51E578402BBD055C00474462 /* Extension+UIImageView.swift in Sources */,
+				51D18E8C2BBD239D00F6E1C1 /* MealsListViewController.swift in Sources */,
 				5124C5EE2BB5939500607CEE /* SceneDelegate.swift in Sources */,
 				5124C62C2BB59A6200607CEE /* HTTPMethod.swift in Sources */,
 				5124C6342BB59ECC00607CEE /* CategoryReponseModel.swift in Sources */,

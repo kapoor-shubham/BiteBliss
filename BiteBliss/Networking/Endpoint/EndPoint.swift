@@ -71,6 +71,6 @@ extension Endpoint {
     
     enum APIURLEndpoints: String {
         case categories = "categories.php"
-        case search = "search.php?s="
+        case search = "search.php"
     }
 }
