@@ -10,7 +10,7 @@ import Foundation
 class HomeViewModel {
     
     var categoryAPIResponse: ((_ responseData: [CategoriesResponseModel.Category]?, _ err: Error?) -> Void)?
-    var categories = [CategoriesResponseModel.Category]()
+    var searchAPIResponse: ((_ responseData: SearchResponseModel?, _ err: Error?) -> Void)?
     
     func getCategories() {
         let endPoint = Endpoint(path: .categories, httpMethod: .get, headers: nil, body: nil, qeryItems: nil)
@@ -27,15 +27,17 @@ class HomeViewModel {
         }
     }
     
-    func getSearchResponse(text: String) {
-        let endPoint = Endpoint(path: .search, httpMethod: .get, headers: nil, body: nil, qeryItems: nil)
+    func getSearchResponse(searchText: String) {
         
-        NetworkManager.shared.apiRequest(for: CategoriesResponseModel.self, from: endPoint) { [weak self] response in
+        let queryParams = [URLQueryItem(name: "s", value: searchText)]
+        let endPoint = Endpoint(path: .search, httpMethod: .get, headers: nil, body: nil, qeryItems: queryParams)
+        
+        NetworkManager.shared.apiRequest(for: SearchResponseModel.self, from: endPoint) { [weak self] response in
             guard let weakSelf = self else { return }
             switch response {
             case .success(let result):
-                guard let categoryAPIResponse = result else { return }
-                weakSelf.categoryAPIResponse?(categoryAPIResponse.categories, nil)
+                guard let searchAPIResponse = result else { return }
+                weakSelf.searchAPIResponse?(searchAPIResponse, nil)
             case .failure(let err):
                 weakSelf.categoryAPIResponse?(nil, err)
             }

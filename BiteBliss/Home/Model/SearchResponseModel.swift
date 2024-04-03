@@ -8,11 +8,11 @@
 import Foundation
 
 // MARK: - SearchResponseModel
-struct SearchResponseModel: Codable {
-    let meals: [Meals]
+struct SearchResponseModel: Decodable {
+    let meals: [Meals]?
 }
 
-struct Meals: Codable {
+struct Meals: Decodable {
     let idMeal, strMeal, strDrinkAlternate: String?
     let strCategory, strArea, strInstructions: String?
     let strMealThumb, strTags, strYoutube: String?
