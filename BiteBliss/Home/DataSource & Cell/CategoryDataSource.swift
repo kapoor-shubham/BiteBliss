@@ -7,7 +7,7 @@
 
 import UIKit
 
-
+/// Used to send back data to be used in MealsList Controller
 protocol SearchCategoryMealDelegate {
     func searchMeal(meal: String)
 }
@@ -17,10 +17,12 @@ class CategoryDataSource: NSObject {
     var categories = [CategoriesResponseModel.Category]()
     var delegate: SearchCategoryMealDelegate?
     
+    /// Register Collection Cell
     func registerCells(forCollectionView collectionView: UICollectionView) {
         collectionView.register(UINib(nibName: CellIdentifiers.categoryListCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: CellIdentifiers.categoryListCollectionViewCell)
     }
 
+    /// Load Cell in CollectionView
     private func loadCell(atIndexPath indexPath: IndexPath, forCollectionView collectionView: UICollectionView) -> UICollectionViewCell {
 
         let cellIdentifier = CellIdentifiers.categoryListCollectionViewCell
@@ -32,6 +34,7 @@ class CategoryDataSource: NSObject {
     }
 }
 
+// MARK:- UICollectionViewDataSource
 extension CategoryDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,12 +46,14 @@ extension CategoryDataSource: UICollectionViewDataSource {
     }
 }
 
+// MARK:- UICollectionViewDelegateFlowLayout
 extension CategoryDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 150, height: 200)
     }
 }
 
+// MARK:- UICollectionViewDelegate
 extension CategoryDataSource: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.searchMeal(meal: categories[indexPath.row].strCategory ?? "")

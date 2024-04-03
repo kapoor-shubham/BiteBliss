@@ -16,10 +16,12 @@ class MealsListDataSource: NSObject {
     var mealsList = [Meals]()
     var delegate: MealDetailDelegate?
     
+    /// Register Table Cell
     func registerCells(forTableView tableView: UITableView) {
         tableView.register(UINib(nibName: CellIdentifiers.mealsListTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifiers.mealsListTableViewCell)
     }
 
+    /// Load Cell in UITableView
     private func loadCell(atIndexPath indexPath: IndexPath, forTableView tableView: UITableView) -> UITableViewCell {
 
         let cellIdentifier = CellIdentifiers.mealsListTableViewCell
@@ -32,6 +34,7 @@ class MealsListDataSource: NSObject {
     }
 }
 
+//MARK:- UITableViewDataSource
 extension MealsListDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mealsList.count
@@ -42,6 +45,7 @@ extension MealsListDataSource: UITableViewDataSource {
     }
 }
 
+//MARK:- UITableViewDelegate
 extension MealsListDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.sendMealDetail(meal: mealsList[indexPath.row])

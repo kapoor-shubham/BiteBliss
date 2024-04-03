@@ -9,6 +9,7 @@ import UIKit
 
 class CategoryListCollectionViewCell: UICollectionViewCell {
     
+//    MARK: @IBOutlets & Variables
     @IBOutlet private weak var categoryImageView: UIImageView!
     @IBOutlet private weak var categoryLabel: UILabel!
     
@@ -19,6 +20,7 @@ class CategoryListCollectionViewCell: UICollectionViewCell {
         }
     }
 
+    /// Prepare Cell For reuse
     override func prepareForReuse() {
         super.prepareForReuse()
         categoryImageView.image = nil

@@ -9,11 +9,13 @@ import UIKit
 
 class MealsListTableViewCell: UITableViewCell {
 
+//MARK: @IBOutlets
     @IBOutlet private weak var mealImageView: UIImageView!
     @IBOutlet private weak var mealNameLabel: UILabel!
     @IBOutlet private weak var mealCategoryLabel: UILabel!
     @IBOutlet private weak var mealLinkLTextView: UITextView!
     
+    /// Setup Cell
     func setUpCell(meal: Meals) {
         mealImageView.imageFromServerURL(meal.strMealThumb ?? "", placeHolder: nil)
         mealNameLabel.text = meal.strMeal
@@ -26,6 +28,7 @@ class MealsListTableViewCell: UITableViewCell {
     }
 }
 
+//MARK:- UITextViewDelegate
 extension MealsListTableViewCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         UIApplication.shared.open(URL)

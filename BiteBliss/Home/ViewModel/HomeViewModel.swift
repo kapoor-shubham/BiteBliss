@@ -12,6 +12,7 @@ class HomeViewModel {
     var categoryAPIResponse: ((_ responseData: [CategoriesResponseModel.Category]?, _ err: Error?) -> Void)?
     var searchAPIResponse: ((_ responseData: SearchResponseModel?, _ err: Error?) -> Void)?
     
+    /// Get Categories from API
     func getCategories() {
         let endPoint = Endpoint(path: .categories, httpMethod: .get, headers: nil, body: nil, qeryItems: nil)
         
@@ -27,6 +28,8 @@ class HomeViewModel {
         }
     }
     
+    
+    /// Get Search Response from API
     func getSearchResponse(searchText: String) {
         
         let queryParams = [URLQueryItem(name: "s", value: searchText)]

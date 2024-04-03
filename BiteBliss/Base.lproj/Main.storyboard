@@ -311,6 +311,7 @@
                         <outlet property="headerLabel" destination="A8w-Hh-q3x" id="2ZI-Ha-on3"/>
                         <outlet property="instructionsTextView" destination="g2Y-ml-3SH" id="WQB-Ub-Nol"/>
                         <outlet property="mealNameLabel" destination="zg0-wd-zbv" id="ft5-bu-iMe"/>
+                        <outlet property="ytPlayerView" destination="NlH-7T-QgF" id="pFn-Za-6pR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4D-bC-ara" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
