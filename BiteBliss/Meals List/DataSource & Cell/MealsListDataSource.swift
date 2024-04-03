@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol MealDetailDelegate {
+    func sendMealDetail(meal: Meals)
+}
+
 class MealsListDataSource: NSObject {
     
     var mealsList = [Meals]()
+    var delegate: MealDetailDelegate?
     
     func registerCells(forTableView tableView: UITableView) {
         tableView.register(UINib(nibName: CellIdentifiers.mealsListTableViewCell, bundle: nil), forCellReuseIdentifier: CellIdentifiers.mealsListTableViewCell)
@@ -39,7 +44,7 @@ extension MealsListDataSource: UITableViewDataSource {
 
 extension MealsListDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+        delegate?.sendMealDetail(meal: mealsList[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

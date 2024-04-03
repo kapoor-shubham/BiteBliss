@@ -71,6 +71,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: SearchCategoryMealDelegate {
     func searchMeal(meal: String) {
+        searchTextField.text = meal
         homeViewModel?.getSearchResponse(searchText: meal)
     }
 }

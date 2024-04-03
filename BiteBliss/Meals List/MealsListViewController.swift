@@ -31,10 +31,20 @@ class MealsListViewController: UIViewController {
         self.mealsTableView.dataSource = self.dataSource
         self.dataSource.registerCells(forTableView: self.mealsTableView)
         self.dataSource.mealsList = self.meals
+        self.dataSource.delegate = self
         self.mealsTableView.reloadData()
     }
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension MealsListViewController: MealDetailDelegate {
+    func sendMealDetail(meal: Meals) {
+        if let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: ControllerIdentifiers.mealDetailViewController) as? MealDetailViewController {
+            vc.mealDetail = meal
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
